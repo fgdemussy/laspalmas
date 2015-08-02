@@ -1,0 +1,33 @@
+<%= form_for(@raider) do |f| %>
+  <% if @raider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@raider.errors.count, "error") %> prohibited this raider from being saved:</h2>
+
+      <ul>
+      <% @raider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :lastName %><br>
+    <%= f.text_field :lastName %>
+  </div>
+  <div class="field">
+    <%= f.label :rut %><br>
+    <%= f.text_field :rut %>
+  </div>
+  <div class="field">
+    <%= f.label :acceptedTerms %><br>
+    <%= f.text_field :acceptedTerms %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
