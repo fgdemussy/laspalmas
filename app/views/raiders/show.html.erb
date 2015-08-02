@@ -1,15 +1,21 @@
 <div class="row">
-  <p id="notice"><%= notice %></p>
+  <div class="col-md-12">
+    <p id="notice"><%= notice %></p>
 
-  <h2><%= @raider.name %>&nbsp<%= @raider.lastName %></h2>
+    <h2><%= @raider.name %>&nbsp<%= @raider.lastName %></h2>
 
-  <dl class="dl-horizontal">
-    <dt>RUT</dt>
-    <dd><%= @raider.rut_to_human %></dd>
-    <dt>Accepted terms</dt>
-    <dd><%= @raider.acceptedTerms %></dd>
-  </dl>
-  
-  <%= link_to 'Edit', edit_raider_path(@raider) %> |
-  <%= link_to 'Back', raiders_path %>
+    <div class="well">
+      <dl class="dl-horizontal">
+        <dt>RUT</dt>
+        <dd><%= @raider.rut_to_human %></dd>
+        <dt>Accepted terms</dt>
+        <dd><%= @raider.acceptedTerms %></dd>
+      </dl>
+    </div>
+
+    <%= link_to 'Edit', edit_raider_path(@raider), class: "btn btn-default" %>
+    <%= link_to 'Back', raiders_path, class: "btn btn-primary" %>
+  </div>
+
+
 </div>

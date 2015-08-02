@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-md-9">
-    <h1 class="page-header">Raiders</h1>
-
+  <div class="col-md-12">
+    <h1 class="page-header">Raiders
+      <%= link_to(new_raider_path, class: "btn btn-primary pull-right") do %>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        New Raider
+      <% end %>
+    </h1>
+  </div>
+  <div class="col-md-12">
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -22,7 +28,7 @@
               <td><%= raider.name %></td>
               <td><%= raider.lastName %></td>
               <td><%= raider.rut_to_human %></td>
-              <td><%= raider.acceptedTerms %></td>
+              <td <%= raider.acceptedTerms ? 'class=text-success' : 'class=text-danger' %> ><%= raider.acceptedTerms %></td>
               <td><%= link_to 'Show', raider %></td>
               <td><%= link_to 'Edit', edit_raider_path(raider) %></td>
               <td><%= link_to 'Destroy', raider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,6 +38,4 @@
       </table>
     </div>
   </div>
-
-  <%= link_to 'New Raider', new_raider_path %>
 </div>
