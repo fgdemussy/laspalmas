@@ -1,24 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @raider.name %>
-</p>
+  <h2><%= @raider.name %>&nbsp<%= @raider.lastName %></h2>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @raider.lastName %>
-</p>
+  <p>
+    <strong>Rut:</strong>
+    <%= @raider.rut %>
+  </p>
+  <p>
+    <strong>Accepted terms:</strong>
+    <%= @raider.acceptedTerms %>
+  </p>
 
-<p>
-  <strong>Rut:</strong>
-  <%= @raider.rut %>
-</p>
-
-<p>
-  <strong>Acceptedterms:</strong>
-  <%= @raider.acceptedTerms %>
-</p>
-
-<%= link_to 'Edit', edit_raider_path(@raider) %> |
-<%= link_to 'Back', raiders_path %>
+  <%= link_to 'Edit', edit_raider_path(@raider) %> |
+  <%= link_to 'Back', raiders_path %>
+</div>

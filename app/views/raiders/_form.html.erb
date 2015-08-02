@@ -11,23 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class:"form-control", placeholder: "Name" %>
   </div>
-  <div class="field">
-    <%= f.label :lastName %><br>
-    <%= f.text_field :lastName %>
+  <div class="form-group">
+    <%= f.label :lastName %>
+    <%= f.text_field :lastName, class:"form-control", placeholder: "Last name" %>
   </div>
-  <div class="field">
-    <%= f.label :rut %><br>
-    <%= f.text_field :rut %>
+  <div class="form-group">
+    <%= f.label :rut %>
+    <%= f.text_field :rut, class:"form-control", placeholder: "RUT" %>
   </div>
-  <div class="field">
-    <%= f.label :acceptedTerms %><br>
-    <%= f.text_field :acceptedTerms %>
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :acceptedTerms %> <strong>Acepts terms and conditions</strong>
+    </label>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <%= f.submit class:"btn btn-default" %>
+
 <% end %>
