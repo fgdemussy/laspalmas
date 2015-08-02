@@ -4,7 +4,7 @@ class RaidersController < ApplicationController
   # GET /raiders
   # GET /raiders.json
   def index
-    @raiders = Raider.all
+    @raiders = Raider.all.order('lower("lastName")')
   end
 
   # GET /raiders/1
