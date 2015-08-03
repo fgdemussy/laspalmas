@@ -1,6 +1,9 @@
 class RaidersController < ApplicationController
   before_action :set_raider, only: [:show, :edit, :update, :destroy]
 
+  def welcome
+  end
+
   # GET /raiders
   # GET /raiders.json
   def index
@@ -69,6 +72,6 @@ class RaidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def raider_params
-      params.require(:raider).permit(:name, :lastName, :rut, :acceptedTerms)
+      params.require(:raider).permit(:name, :lastName, :rut, :acceptedTerms, :email)
     end
 end

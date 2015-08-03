@@ -23,6 +23,10 @@
     <%= f.label :rut %>
     <%= f.text_field :rut, class:"form-control", placeholder: "RUT" %>
   </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class:"form-control", placeholder: "email@example.com" %>
+  </div>
   <div class="checkbox">
     <label>
       <%= f.check_box :acceptedTerms %> <strong>Acepts terms and conditions</strong>
