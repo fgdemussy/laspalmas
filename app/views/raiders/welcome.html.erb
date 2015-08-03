@@ -22,11 +22,12 @@
       <div class="form-group">
         <%= f.text_field :rut, class:"form-control", placeholder: "RUT" %>
       </div>
+      <% unless @notice.nil? %>
       <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <%= @notice %>
       </div>
-
+      <% end %>
       <%= f.submit "Submit", class:"btn btn-lg btn-success" %>
 
     <% end %>
