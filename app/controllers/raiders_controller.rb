@@ -2,6 +2,7 @@ class RaidersController < ApplicationController
   before_action :set_raider, only: [:show, :edit, :update, :destroy]
 
   def welcome
+    
   end
 
   # GET /raiders
