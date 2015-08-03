@@ -12,6 +12,11 @@ body {
   padding-left: 15px;
 }
 
+.input-container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 /* Custom page header */
 .header {
   padding-bottom: 20px;

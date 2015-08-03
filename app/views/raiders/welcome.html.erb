@@ -1,44 +1,39 @@
 <div class="header clearfix">
-  <nav>
-    <ul class="nav nav-pills pull-right">
-      <li role="presentation" class="active"><a href="#">Home</a></li>
-      <li role="presentation"><a href="#">About</a></li>
-      <li role="presentation"><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-  <h3 class="text-muted">Project name</h3>
+  <h3 class="text-muted">Parque Las Palmas</h3>
 </div>
 
 <div class="jumbotron">
-  <h1>Jumbotron heading</h1>
-  <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-  <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-</div>
+  <h1>Riders registration</h1>
+  <p class="lead">Please enter your RUT</p>
+  <div class="input-container">
+    <%= form_for(@raider, url: welcome_raiders_path, method: :post) do |f| %>
+      <% if @raider.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@raider.errors.count, "error") %> prohibited this raider from being saved:</h2>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Subheading</h4>
-    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          <ul>
+          <% @raider.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-    <h4>Subheading</h4>
-    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+      <div class="form-group">
+        <%= f.text_field :rut, class:"form-control", placeholder: "RUT" %>
+      </div>
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= @notice %>
+      </div>
 
-    <h4>Subheading</h4>
-    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+      <%= f.submit "Submit", class:"btn btn-lg btn-success" %>
+
+    <% end %>
   </div>
 
-  <div class="col-lg-6">
-    <h4>Subheading</h4>
-    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-    <h4>Subheading</h4>
-    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-    <h4>Subheading</h4>
-    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-  </div>
 </div>
 
 <footer class="footer">
-  <p>&copy; Company 2014</p>
+  <p>&copy; Parque Las Palmas 2015</p>
 </footer>

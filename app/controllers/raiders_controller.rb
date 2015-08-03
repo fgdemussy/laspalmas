@@ -2,7 +2,24 @@ class RaidersController < ApplicationController
   before_action :set_raider, only: [:show, :edit, :update, :destroy]
 
   def welcome
-    
+    if params[:raider].nil?
+      @raider = Raider.new
+    else
+      @raider = Raider.find_by_rut(raider_params[:rut])
+
+      respond_to do |format|
+        if raider_params[:rut].blank?
+          @raider = Raider.new
+          @notice = "Snap! please dial you RUT correctly and try again."
+          format.html { render :welcome }
+        elsif @raider.nil?
+          @raider = Raider.new
+          format.html { render :new }
+        else
+          format.html { redirect_to @raider }
+        end
+      end
+    end
   end
 
   # GET /raiders

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :raiders do
     collection do
       get 'welcome'
+      post 'welcome'
     end
   end
 
