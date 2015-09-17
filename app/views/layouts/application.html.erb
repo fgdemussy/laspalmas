@@ -8,9 +8,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
       <div class="container">
+        <% unless notice.nil? %>
+        <!--Alerts for Devise... should be removed afterward -->
+        <div class="row">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+        <% end %>
         <%= yield %>
       </div>
   </body>

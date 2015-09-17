@@ -7,43 +7,43 @@
 
 
 <div class="row">
-  <div class="col-md-12">
-    <h1 class="page-header">Raiders
-      <%= link_to(new_raider_path, class: "btn btn-primary pull-right") do %>
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        New Raider
-      <% end %>
-    </h1>
-  </div>
-  <div class="col-md-12">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Lastname</th>
-            <th>Rut</th>
-            <th>Email</th>
-            <th>Terms</th>
-            <th colspan="3">Actions</th>
-          </tr>
-        </thead>
+  <h1 class="page-header">Raiders
+    <%= link_to(new_raider_path, class: "btn btn-primary pull-right") do %>
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      New Raider
+    <% end %>
+    <span class="pull-right">&nbsp</span>
+    <%= link_to "Home", root_url, class: "btn btn-default pull-right" %>
+  </h1>
+</div>
+<div class="row">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Lastname</th>
+          <th>Rut</th>
+          <th>Email</th>
+          <th>Terms</th>
+          <th colspan="3">Actions</th>
+        </tr>
+      </thead>
 
-        <tbody>
-          <% @raiders.each do |raider| %>
-            <tr>
-              <td><%= raider.name %></td>
-              <td><%= raider.lastName %></td>
-              <td><%= raider.rut_to_human %></td>
-              <td><%= raider.email %></td>
-              <td <%= raider.acceptedTerms ? 'class=text-success' : 'class=text-danger' %> ><%= raider.acceptedTerms %></td>
-              <td><%= link_to 'Show', raider %></td>
-              <td><%= link_to 'Edit', edit_raider_path(raider) %></td>
-              <td><%= link_to 'Destroy', raider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+      <tbody>
+        <% @raiders.each do |raider| %>
+          <tr>
+            <td><%= raider.name %></td>
+            <td><%= raider.lastName %></td>
+            <td><%= raider.rut_to_human %></td>
+            <td><%= raider.email %></td>
+            <td <%= raider.acceptedTerms ? 'class=text-success' : 'class=text-danger' %> ><%= raider.acceptedTerms %></td>
+            <td><%= link_to 'Show', raider %></td>
+            <td><%= link_to 'Edit', edit_raider_path(raider) %></td>
+            <td><%= link_to 'Destroy', raider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

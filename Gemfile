@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Email validator
 gem 'email_validator'
 
+# Users and auth
+gem 'devise'
+
 # Use Puma as server
 gem 'puma'
 

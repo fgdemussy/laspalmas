@@ -1,5 +1,7 @@
 class RaidersController < ApplicationController
+  before_action :authenticate_user!, except: [:welcome]
   before_action :set_raider, only: [:show, :edit, :update, :destroy]
+
 
   def welcome
     logger.debug notice

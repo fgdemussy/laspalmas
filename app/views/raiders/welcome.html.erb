@@ -1,22 +1,25 @@
 <!-- Modal for Raider created notice -->
 <% unless notice.nil? %>
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Great!</h4>
-      </div>
-      <div class="modal-body">
-        <%= notice %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+  <% if notice.include? "successfully registered" %>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Great!</h4>
+        </div>
+        <div class="modal-body">
+          <%= notice %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
+    </div>
+  <% end %>
 <% end %>
+
 <div class="header clearfix">
   <h3 class="text-muted">Parque Las Palmas</h3>
 </div>
@@ -38,9 +41,13 @@
       <%= f.submit "Submit", class:"btn btn-lg btn-primary" %>
     <% end %>
   </div>
-
 </div>
 
-<footer class="footer">
-  <p>&copy; Parque Las Palmas 2015</p>
+<footer class="footer clearfix">
+  <div class="pull-left">&copy; Parque Las Palmas 2015</div>
+  <% if user_signed_in? %>
+    <%= link_to('Logout', destroy_user_session_path, class: "btn btn-danger btn-xs pull-right", method: :delete) if user_signed_in? %>
+    <span class="pull-right">&nbsp</span>
+  <% end %>
+  <%= link_to 'Admin', raiders_url, class: "btn btn-default btn-xs pull-right" %>
 </footer>
