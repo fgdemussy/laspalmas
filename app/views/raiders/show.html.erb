@@ -1,21 +1,22 @@
 <div class="row">
-  <p id="notice"><%= notice %></p>
+  <div class="col-md-12">
+    <p id="notice"><%= notice %></p>
 
-  <h2><%= @raider.name %>&nbsp<%= @raider.lastName %></h2>
+    <h2><%= @raider.name %>&nbsp<%= @raider.lastName %></h2>
 
-  <div class="well">
-    <dl class="dl-horizontal">
-      <dt>RUT</dt>
-      <dd><%= @raider.rut_to_human %></dd>
-      <dt>Email</dt>
-      <dd><%= @raider.email %></dd>
-      <dt>Accepted terms</dt>
-      <dd><%= @raider.acceptedTerms %></dd>
-    </dl>
+    <div class="well">
+      <dl class="dl-horizontal">
+        <dt>RUT</dt>
+        <dd><%= @raider.rut_to_human %></dd>
+        <dt>Email</dt>
+        <dd><%= @raider.email %></dd>
+        <dt>Accepted terms</dt>
+        <dd><%= @raider.acceptedTerms %></dd>
+      </dl>
+    </div>
+
+    <%= link_to 'Edit', edit_raider_path(@raider), class: "btn btn-default" if user_signed_in? %>
+    <%= link_to 'Back to list', raiders_url, class: "btn btn-default" if user_signed_in? %>
+    <%= link_to 'Back', root_url, class: "btn btn-primary" %>
   </div>
-
-  <%= link_to 'Edit', edit_raider_path(@raider), class: "btn btn-default" if user_signed_in? %>
-  <%= link_to 'Back to list', raiders_url, class: "btn btn-default" if user_signed_in? %>
-  <%= link_to 'Back', root_url, class: "btn btn-primary" %>
-
 </div>
