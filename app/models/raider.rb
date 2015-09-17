@@ -1,6 +1,6 @@
 class Raider < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
-  validates :acceptedTerms, acceptance: true
+  validates :acceptedTerms, acceptance: {accept: true}
   validates :name, :lastName, :rut, :email, presence: true
   validates :rut, uniqueness: true, rut: true
 

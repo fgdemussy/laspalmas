@@ -17,8 +17,9 @@ class RaidersController < ApplicationController
         else
           @notice = "Snap! Invalid RUT. Please try again."
           @alert_class = "alert-danger"
+          format.html { render :welcome }
         end
-        format.html { render :welcome }
+        
       elsif @raider.new_record?
         logger.debug "RENDERING A NEW RIDER: #{@raider.attributes.inspect}"
         format.html { render :welcome }
