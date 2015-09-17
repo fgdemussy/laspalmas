@@ -10,15 +10,20 @@
   </head>
   <body>
       <div class="container">
+        <!--Alerts -->
         <% unless notice.nil? %>
-        <!--Alerts for Devise... should be removed afterward -->
-        <div class="row">
-          <div class="col-md-12">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
+          <% unless notice.include? "successfully registered" %>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <p id="notice"><%= notice %></p>
+              </div>
+            </div>
           </div>
-        </div>
+          <% end %>
         <% end %>
+
         <%= yield %>
       </div>
   </body>
