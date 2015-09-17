@@ -2,6 +2,8 @@ class RaidersController < ApplicationController
   before_action :set_raider, only: [:show, :edit, :update, :destroy]
 
   def welcome
+    logger.debug notice
+
     if params[:raider].blank?
       @raider = Raider.new
     else
@@ -19,16 +21,9 @@ class RaidersController < ApplicationController
           @alert_class = "alert-danger"
           format.html { render :welcome }
         end
-        
+
       elsif @raider.new_record?
-        logger.debug "RENDERING A NEW RIDER: #{@raider.attributes.inspect}"
         format.html { render :welcome }
-      elsif raider_params[:rut].blank?
-        @notice = "Snap! Invalid RUT. Please try again."
-        format.html { render :welcome }
-      elsif false
-        @raider = Raider.new
-        format.html { render :new }
       else
         format.html { redirect_to @raider }
       end
@@ -62,7 +57,7 @@ class RaidersController < ApplicationController
 
     respond_to do |format|
       if @raider.save
-        format.html { redirect_to @raider, notice: 'Raider was successfully created.' }
+        format.html { redirect_to root_url, notice: "Okay #{@raider.name}, you have successfully registered. Go ride!" }
         format.json { render :show, status: :created, location: @raider }
       else
         format.html { render :new }
@@ -76,7 +71,7 @@ class RaidersController < ApplicationController
   def update
     respond_to do |format|
       if @raider.update(raider_params)
-        format.html { redirect_to @raider, notice: 'Raider was successfully updated.' }
+        format.html { redirect_to raiders_url, notice: 'Raider was successfully updated.' }
         format.json { render :show, status: :ok, location: @raider }
       else
         format.html { render :edit }
