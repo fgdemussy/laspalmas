@@ -2,22 +2,34 @@ class RaidersController < ApplicationController
   before_action :set_raider, only: [:show, :edit, :update, :destroy]
 
   def welcome
-    if params[:raider].nil?
+    if params[:raider].blank?
       @raider = Raider.new
     else
       @raider = Raider.find_by_rut(raider_params[:rut])
+    end
 
-      respond_to do |format|
-        if raider_params[:rut].blank?
-          @raider = Raider.new
-          @notice = "Snap! please dial you RUT correctly and try again."
-          format.html { render :welcome }
-        elsif @raider.nil?
-          @raider = Raider.new
+    respond_to do |format|
+      if @raider.nil?
+        @raider = Raider.new rut: raider_params[:rut]
+        @raider.valid?
+        if @raider.errors[:rut].blank?
           format.html { render :new }
         else
-          format.html { redirect_to @raider }
+          @notice = "Snap! Invalid RUT. Please try again."
+          @alert_class = "alert-danger"
         end
+        format.html { render :welcome }
+      elsif @raider.new_record?
+        logger.debug "RENDERING A NEW RIDER: #{@raider.attributes.inspect}"
+        format.html { render :welcome }
+      elsif raider_params[:rut].blank?
+        @notice = "Snap! Invalid RUT. Please try again."
+        format.html { render :welcome }
+      elsif false
+        @raider = Raider.new
+        format.html { render :new }
+      else
+        format.html { redirect_to @raider }
       end
     end
   end

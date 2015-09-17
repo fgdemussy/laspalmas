@@ -7,29 +7,16 @@
   <p class="lead">Please enter your RUT</p>
   <div class="input-container">
     <%= form_for(@raider, url: welcome_raiders_path, method: :post) do |f| %>
-      <% if @raider.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@raider.errors.count, "error") %> prohibited this raider from being saved:</h2>
-
-          <ul>
-          <% @raider.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-
       <div class="form-group">
         <%= f.text_field :rut, class:"form-control", placeholder: "RUT" %>
       </div>
       <% unless @notice.nil? %>
-      <div class="alert alert-warning alert-dismissible" role="alert">
+      <div class="alert <%= @alert_class %> alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <%= @notice %>
       </div>
       <% end %>
-      <%= f.submit "Submit", class:"btn btn-lg btn-success" %>
-
+      <%= f.submit "Submit", class:"btn btn-lg btn-primary" %>
     <% end %>
   </div>
 
