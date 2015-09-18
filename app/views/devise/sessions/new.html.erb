@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Log in</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group <%= "has-error" unless resource.errors[:email].blank? %>">
+        <%= f.label :email, class:"control-label" %>
+        <%= f.email_field :email, class:"form-control", placeholder: "email@example.com", autofocus: true %>
+      </div>
+
+      <div class="form-group <%= "has-error" unless resource.errors[:password].blank? %>">
+        <%= f.label :password, class: "control-label" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </label>
+
+        </div>
+      <% end -%>
+
+      <%= f.submit "Log in", class:"btn btn-primary" %>
+
+    <% end %>
+  </div>
+</div>
+
+
+<%= render "devise/shared/links" %>
