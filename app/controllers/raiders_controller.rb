@@ -17,6 +17,8 @@ class RaidersController < ApplicationController
         @raider = Raider.new rut: raider_params[:rut]
         @raider.valid?
         if @raider.errors[:rut].blank?
+          @raider.errors.clear
+          flash.now[:notice] = "Welcome new rider! Please fill in the blanks."
           format.html { render :new }
         else
           @notice = "Snap! Invalid RUT. Please try again."
