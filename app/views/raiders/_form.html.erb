@@ -25,6 +25,10 @@
     <%= f.label :email, class: "control-label" %>
     <%= f.email_field :email, class:"form-control", placeholder: "email@example.com" %>
   </div>
+  <div class="form-group <%= "has-error" unless @raider.errors[:birthdate].blank? %>">
+    <%= f.label :birthdate, class: "control-label" %>
+    <%= date_select :raider, :birthdate, include_blank: true, start_year: 1970, class:"form-control" %>
+  </div>
   <div class="checkbox <%= "has-error" unless @raider.errors[:acceptedTerms].blank? %>">
     <label>
       <%= f.check_box :acceptedTerms %> <strong>Acepts terms and conditions</strong>

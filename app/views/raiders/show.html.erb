@@ -8,6 +8,8 @@
       <dl class="dl-horizontal">
         <dt>RUT</dt>
         <dd><%= @raider.rut_to_human %></dd>
+        <dt>Birth date</dt>
+        <dd><%= @raider.birthdate.strftime("%v") %>&nbsp<%= "("+time_ago_in_words(@raider.birthdate)+" old)" %></dd>
         <dt>Email</dt>
         <dd><%= @raider.email %></dd>
         <dt>Accepted terms</dt>
