@@ -1,6 +1,5 @@
 <div class="row">
   <div class="col-md-12">
-    <p id="notice"><%= notice %></p>
 
     <h2><%= @raider.name %>&nbsp<%= @raider.lastName %></h2>
 
@@ -16,9 +15,61 @@
         <dd><%= @raider.acceptedTerms %></dd>
       </dl>
     </div>
-
-    <%= link_to 'Edit', edit_raider_path(@raider), class: "btn btn-default" if user_signed_in? %>
-    <%= link_to 'Back to list', raiders_url, class: "btn btn-default" if user_signed_in? %>
-    <%= link_to 'Back', root_url, class: "btn btn-primary" %>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_raider_path(@raider), class: "btn btn-default" %>
+      <%= link_to 'Back to list', raiders_url, class: "btn btn-default" %>
+    <% else %>
+      <% if @not_visited_today %>
+        <%= link_to 'I want to go ride today!', raider_visits_path(@raider), class: "btn btn-success btn-lg", method: :post %>
+        <span>&nbsp or &nbsp</span>
+        <%= link_to 'go back', root_url, class: "btn btn-default" %>
+      <% else %>
+        <span>You already registered today. You can go ride! &nbsp</span>
+        <%= link_to 'Ok, got it.', root_url, class: "btn btn-success btn-lg" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Visits</h3>
+    <% if @not_visited_today %>
+      <%= link_to(raider_visits_path(@raider), method: :post, class: "btn btn-default pull-right") do %>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Visit for today
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @raider.visits.each do |visit| %>
+            <tr>
+              <td><%= visit.date.strftime("%v") %></td>
+              <td><%= link_to 'Destroy', raider_visit_path(raider_id: @raider.id, id: visit.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<% end %>

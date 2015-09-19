@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get 'welcome'
       post 'welcome'
     end
+    resources :visits
   end
 
 root 'raiders#welcome'

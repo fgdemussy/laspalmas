@@ -5,6 +5,7 @@ class Raider < ActiveRecord::Base
   validates :email, email: true
   validates :rut, uniqueness: true, rut: true
 
+  has_many :visits
 
   before_validation :correct_rut_format
 

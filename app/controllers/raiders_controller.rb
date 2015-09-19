@@ -43,6 +43,7 @@ class RaidersController < ApplicationController
   # GET /raiders/1
   # GET /raiders/1.json
   def show
+    @not_visited_today = @raider.visits.find_by_date(Date.today).blank?
   end
 
   # GET /raiders/new

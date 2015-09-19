@@ -72,8 +72,11 @@
 
   </div>
 
-  <%= f.submit class:"btn btn-default" %>
-  <%= link_to 'Cancel', root_url, class: "btn btn-primary" %>
-  <%= link_to 'Back to list', raiders_url, class: "btn btn-default" if user_signed_in? %>
+  <%= f.submit class:"btn btn-primary" %>
 
+  <% if user_signed_in? %>
+    <%= link_to 'Back to list', raiders_url, class: "btn btn-default" %>
+  <% else %>
+    <%= link_to 'Cancel', root_url, class: "btn btn-primary" %>
+  <% end %>
 <% end %>
