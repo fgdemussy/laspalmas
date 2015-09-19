@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 class="page-header">Raiders
+    <h1 class="page-header"> <small> <%= number_with_delimiter(@raiders.count) %> </small> Raiders
       <%= link_to(new_raider_path, class: "btn btn-primary pull-right") do %>
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         Raider
