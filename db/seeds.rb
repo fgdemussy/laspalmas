@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Raider.create!(name:'Carlos', lastName:'Mardones', rut:'12346345', acceptedTerms:true)
-Raider.create!(name:'Mike', lastName:'Charlain', rut:'23451324')
-Raider.create!(name:'Stiff', lastName:'Fitzer', rut:'6575')
-Raider.create!(name:'Josefa', lastName:'Lira', rut:'789865221')
+Raider.create!(name:'Steven', lastName:'Hawkins', rut:'162832999', acceptedTerms:true, birthdate: "01-01-1980", email: "example@example.com")
+Raider.create!(name:'Mike', lastName:'Charlain', rut:'174043124', acceptedTerms:true, birthdate: "01-01-1980", email: "example@example.com")
+Raider.create!(name:'Stiff', lastName:'Fitzer', rut:'60532494', acceptedTerms:true, birthdate: "01-01-1980", email: "example@example.com")
