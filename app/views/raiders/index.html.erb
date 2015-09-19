@@ -20,7 +20,7 @@
             <th>Name</th>
             <th>Lastname</th>
             <th>Rut</th>
-            <th>Email</th>
+            <!-- <th>Email</th> -->
             <th>Terms</th>
             <th colspan="3">Actions</th>
           </tr>
@@ -32,7 +32,7 @@
               <td><%= raider.name %></td>
               <td><%= raider.lastName %></td>
               <td><%= raider.rut_to_human %></td>
-              <td><%= raider.email %></td>
+              <!-- <td><%= raider.email %></td> -->
               <td <%= raider.acceptedTerms ? 'class=text-success' : 'class=text-danger' %> ><%= raider.acceptedTerms %></td>
               <td><%= link_to 'Show', raider %></td>
               <td><%= link_to 'Edit', edit_raider_path(raider) %></td>
