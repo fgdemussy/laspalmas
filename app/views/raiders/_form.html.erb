@@ -61,6 +61,10 @@
     <%= f.label :birthdate, class: "control-label" %>
     <%= date_select :raider, :birthdate, include_blank: true, start_year: 1970, class:"form-control" %>
   </div>
+  <div class="form-group <%= "has-error" unless @raider.errors[:city].blank? %>">
+    <%= f.label :city, class: "control-label" %>
+    <%= select :raider, :city_id, City.order_for_select.collect {|c| [c.name, c.id] }, class:"form-control" %>
+  </div>
   <div class="checkbox <%= "has-error" unless @raider.errors[:acceptedTerms].blank? %>">
     <label>
       <%= f.check_box :acceptedTerms %> <strong>Acepts terms and conditions</strong>
