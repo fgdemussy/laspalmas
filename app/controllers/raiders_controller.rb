@@ -62,6 +62,7 @@ class RaidersController < ApplicationController
 
     respond_to do |format|
       if @raider.save
+        @raider.visits << Visit.new(date: Date.today)
         format.html { redirect_to root_url, notice: "Okay #{@raider.name}, you have successfully registered. Go ride!" }
         format.json { render :show, status: :created, location: @raider }
       else
