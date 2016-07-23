@@ -33,7 +33,7 @@
               <td><%= raider.lastName %></td>
               <td><%= raider.rut_to_human %></td>
               <!-- <td><%= raider.email %></td> -->
-              <td><%= raider.visits.blank? ? "-" : days_ago_or_today(raider.visits.order(:created_at).first.date) %></td>
+              <td><%= raider.visits.blank? ? "-" : days_ago_or_today(raider.visits.order(:created_at).last.date) %></td>
               <td><%= link_to 'Details', raider %></td>
             </tr>
           <% end %>
