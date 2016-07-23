@@ -5,7 +5,7 @@ class Raider < ActiveRecord::Base
   validates :email, email: true
   validates :rut, uniqueness: true, rut: true
 
-  has_many :visits
+  has_many :visits, dependent: :destroy
   belongs_to :city
 
   before_validation :correct_rut_format
