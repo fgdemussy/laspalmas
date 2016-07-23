@@ -183,7 +183,7 @@ Las motos y bicicletas podrán ser controladas en cualquier lugar del Parque Las
   </div>
   <div class="form-group <%= "has-error" unless @raider.errors[:birthdate].blank? %>">
     <%= f.label :birthdate, class: "control-label" %>
-    <%= date_select :raider, :birthdate, include_blank: true, start_year: 1970, class:"form-control" %>
+    <%= date_select :raider, :birthdate, include_blank: true, start_year: 1920, class:"form-control" %>
   </div>
   <div class="form-group <%= "has-error" unless @raider.errors[:city].blank? %>">
     <%= f.label :city, class: "control-label" %>
