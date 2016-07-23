@@ -34,9 +34,7 @@
               <td><%= raider.rut_to_human %></td>
               <!-- <td><%= raider.email %></td> -->
               <td><%= raider.visits.blank? ? "-" : days_ago_or_today(raider.visits.last.date) %></td>
-              <td><%= link_to 'Show', raider %></td>
-              <td><%= link_to 'Edit', edit_raider_path(raider) %></td>
-              <td><%= link_to 'Destroy', raider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Details', raider %></td>
             </tr>
           <% end %>
         </tbody>

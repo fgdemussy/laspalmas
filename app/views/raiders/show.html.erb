@@ -24,6 +24,7 @@
   <div class="col-md-12 text-center">
     <% if user_signed_in? %>
       <%= link_to 'Edit', edit_raider_path(@raider), class: "btn btn-default" %>
+      <%= link_to 'Destroy', @raider, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
       <%= link_to 'Back to list', raiders_url, class: "btn btn-default" %>
     <% else %>
       <% if @not_visited_today %>
