@@ -9,7 +9,8 @@ gem 'autoprefixer-rails'
 gem 'rails', '4.2.0'
 
 # Pagination gem
-gem 'will_paginate', '~> 3.1.0'
+# gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate'
 
 gem 'rails_12factor', group: :production
 # Use postgresql as the database for Active Record
