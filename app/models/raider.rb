@@ -10,6 +10,9 @@ class Raider < ActiveRecord::Base
 
   before_validation :correct_rut_format
 
+  # Pagination
+  self.per_page = 100
+
   def rut_to_human
     r = self.rut
     check_digit = r.last

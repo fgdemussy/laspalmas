@@ -38,7 +38,7 @@ class RaidersController < ApplicationController
   # GET /raiders
   # GET /raiders.json
   def index
-    @raiders = Raider.order(sort_column.to_sym => sort_direction.to_sym)
+    @raiders = Raider.order(sort_column.to_sym => sort_direction.to_sym).page(params[:page])
   end
 
   # GET /raiders/1
