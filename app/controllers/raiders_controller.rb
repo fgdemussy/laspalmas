@@ -2,6 +2,7 @@ class RaidersController < ApplicationController
   before_action :authenticate_user!, except: [:welcome, :create, :show]
   before_action :set_raider, only: [:show, :edit, :update, :destroy]
 
+  helper_method :sort_column, :sort_direction
 
   def welcome
     logger.debug notice
@@ -37,7 +38,7 @@ class RaidersController < ApplicationController
   # GET /raiders
   # GET /raiders.json
   def index
-    @raiders = Raider.all.order('lower("lastName")')
+    @raiders = Raider.order(sort_column.to_sym => sort_direction.to_sym)
   end
 
   # GET /raiders/1
@@ -97,6 +98,20 @@ class RaidersController < ApplicationController
   end
 
   private
+    # Sortable columns
+    def sort_column
+      Raider.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    # Sort direction
+    def sort_direction
+      unless params[:direction].nil?
+        %[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+      else
+        "asc"
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_raider
       @raider = Raider.find(params[:id])
