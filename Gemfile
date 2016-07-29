@@ -12,6 +12,10 @@ gem 'rails', '4.2.0'
 # gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate'
 
+# Excel gem
+gem 'axlsx_rails'
+
+
 gem 'rails_12factor', group: :production
 # Use postgresql as the database for Active Record
 gem 'pg'

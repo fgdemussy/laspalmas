@@ -39,6 +39,13 @@ class RaidersController < ApplicationController
   # GET /raiders.json
   def index
     @raiders = Raider.order(sort_column.to_sym => sort_direction.to_sym).page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="all_riders.xlsx"'
+      }
+    end
   end
 
   # GET /raiders/1
