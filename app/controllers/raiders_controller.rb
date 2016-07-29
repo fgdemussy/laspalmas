@@ -43,6 +43,7 @@ class RaidersController < ApplicationController
     respond_to do |format|
       format.html
       format.xlsx {
+        @raiders = Raider.all.order('"lastName"') 
         response.headers['Content-Disposition'] = 'attachment; filename="all_riders.xlsx"'
       }
     end
