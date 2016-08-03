@@ -6,7 +6,7 @@ class VisitsController < ApplicationController
       @raider.visits << @visit
     end
     respond_to do |format|
-      format.html { redirect_to @raider, notice: "Visit logged." }
+      format.html { redirect_to(user_signed_in? ? @raider : go_ride_raider_path(@raider), notice: "Visit logged.") }
     end
   end
 

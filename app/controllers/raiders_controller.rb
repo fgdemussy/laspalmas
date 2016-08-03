@@ -1,6 +1,6 @@
 class RaidersController < ApplicationController
-  before_action :authenticate_user!, except: [:welcome, :create, :show]
-  before_action :set_raider, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:welcome, :create, :go_ride]
+  before_action :set_raider, only: [:show, :edit, :update, :destroy, :go_ride]
 
   helper_method :sort_column, :sort_direction
 
@@ -30,7 +30,7 @@ class RaidersController < ApplicationController
       elsif @raider.new_record?
         format.html { render :welcome }
       else
-        format.html { redirect_to @raider }
+        format.html { redirect_to user_signed_in? ? @raider : go_ride_raider_path(@raider) }
       end
     end
   end
@@ -43,7 +43,7 @@ class RaidersController < ApplicationController
     respond_to do |format|
       format.html
       format.xlsx {
-        @raiders = Raider.all.order('"lastName"') 
+        @raiders = Raider.all.order('"lastName"')
         response.headers['Content-Disposition'] = 'attachment; filename="all_riders.xlsx"'
       }
     end
@@ -52,6 +52,11 @@ class RaidersController < ApplicationController
   # GET /raiders/1
   # GET /raiders/1.json
   def show
+    @not_visited_today = @raider.visits.find_by_date(Date.today).blank?
+  end
+
+  # GET /raiders/1/go_ride
+  def go_ride
     @not_visited_today = @raider.visits.find_by_date(Date.today).blank?
   end
 

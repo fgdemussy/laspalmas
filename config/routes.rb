@@ -5,6 +5,10 @@ Rails.application.routes.draw do
       get 'welcome'
       post 'welcome'
     end
+    member do
+      get 'go_ride'
+    end
+
     resources :visits
   end
 
