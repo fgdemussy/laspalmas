@@ -1,6 +1,11 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Riders") do |sheet|
   @raiders.each do |raider|
-    sheet.add_row [raider.name, raider.lastName, raider.rut_to_human, raider.email]
+    sheet.add_row [raider.id, raider.name, raider.lastName, raider.rut_to_human, raider.email]
+  end
+end
+wb.add_worksheet(name: "Visits") do |sheet|
+  Visit.all.each do |visit|
+    sheet.add_row [visit.id, visit.raider_id, visit.date]
   end
 end
