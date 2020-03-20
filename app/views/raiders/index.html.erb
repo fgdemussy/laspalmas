@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 class="page-header"> <small> <%= number_with_delimiter(@raiders.count) %> </small> Raiders
+    <h1 class="page-header"> <small> <%= number_with_delimiter(@raiders.count) %> </small> Riders
       <%= link_to(raiders_path(format: :xlsx), class: "btn btn-primary pull-right") do %>
         <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
         Excel
@@ -8,7 +8,7 @@
       <span class="pull-right">&nbsp</span>
       <%= link_to(new_raider_path, class: "btn btn-primary pull-right") do %>
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        Raider
+        Rider
       <% end %>
       <span class="pull-right">&nbsp</span>
       <%= link_to "Home", root_url, class: "btn btn-default pull-right" %>

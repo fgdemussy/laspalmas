@@ -91,7 +91,7 @@ class RaidersController < ApplicationController
   def update
     respond_to do |format|
       if @raider.update(raider_params)
-        format.html { redirect_to raiders_url, notice: 'Raider was successfully updated.' }
+        format.html { redirect_to raiders_url, notice: 'Rider was successfully updated.' }
         format.json { render :show, status: :ok, location: @raider }
       else
         format.html { render :edit }
@@ -105,7 +105,7 @@ class RaidersController < ApplicationController
   def destroy
     @raider.destroy
     respond_to do |format|
-      format.html { redirect_to raiders_url, notice: 'Raider was successfully destroyed.' }
+      format.html { redirect_to raiders_url, notice: 'Rider was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

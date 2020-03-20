@@ -1,4 +1,4 @@
-<!-- Modal for Raider created notice -->
+<!-- Modal for Rider created notice -->
 <% unless notice.nil? %>
   <% if notice.include? "successfully registered" %>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -28,7 +28,7 @@
 </div>
 
 <div class="jumbotron">
-  <h1>Riders registration</h1>
+  <h1>Rider registration</h1>
   <p class="lead">Please enter your RUT</p>
   <div class="input-container">
     <%= form_for(@raider, url: welcome_raiders_path, method: :post) do |f| %>
